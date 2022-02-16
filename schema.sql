@@ -15,16 +15,16 @@ ALTER TABLE animals
 
 -- Owners table 
 CREATE TABLE owners (
-    id INT,
+    id INT NOT NULL,
     full_name varchar(100),
-    age INT,
+    age INT
     PRIMARY KEY(owner_id)
 );
 
 -- Species table 
 CREATE TABLE species (
-    id INT,
-    name varchar(100),
+    id INT NOT NULL,
+    name varchar(100)
     PRIMARY KEY(species_id)
 );
 
