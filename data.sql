@@ -162,44 +162,6 @@ INSERT INTO animals(
     17
 );
 
--- Inserting data into owners table
-INSERT INTO owners(owner_id,full_name,age) VALUES (1,'sam smith',34);
-INSERT INTO owners(owner_id,full_name,age) VALUES (2,'Jennifer Orwell',19);
-INSERT INTO owners(owner_id,full_name,age) VALUES (3,'Bob',45);
-INSERT INTO owners(owner_id,full_name,age) VALUES (4,'Melody Pond',77);
-INSERT INTO owners(owner_id,full_name,age) VALUES (5,'Dean Winchester',14);
-INSERT INTO owners(owner_id,full_name,age) VALUES (6,'Jodie Whittaker',38);
-
--- Inserting daat into Species table
-INSERT INTO species(species_id,name) VALUES (1,'pokemon');
-INSERT INTO species(species_id,name) VALUES (2,'Digimon'
-
--- Modify your inserted animals to include owner information (owner_id):
-UPDATE animals
-SET species_id = (SELECT id FROM species WHERE name = 'Pokemon')
-WHERE species_id IS NULL;
-
-UPDATE animals 
-SET owner_id = (SELECT id FROM owners WHERE full_name = 'Sam Smith')
-WHERE name = 'Agumon';
-
-UPDATE animals 
-SET owner_id = (SELECT id FROM owners WHERE full_name = 'Jennifer Orwell')
-WHERE name IN ('Gabumon', 'Pikachu');
-
-UPDATE animals 
-SET owner_id = (SELECT id FROM owners WHERE full_name = 'Bob')
-WHERE name IN ('Devimon', 'Plantmon');
-
-UPDATE animals 
-SET owner_id = (SELECT id FROM owners WHERE full_name = 'Melody Pond')
-WHERE name IN ('Charmander', 'Squirtle', 'Blossom');
-
-UPDATE animals 
-SET owner_id = (SELECT id FROM owners WHERE full_name = 'Dean Winchester')
-WHERE name IN ('Angemon', 'Boarmon');
-
-
 /* Start a transaction and update the animals 
    table by setting the species column to unspecified.
 */
@@ -247,5 +209,63 @@ UPDATE animals SET weight_kg = weight_kg * -1;
 ROLLBACK TRANSACTION first_deleted_transaction;
 
 UPDATE animals SET weight_kg = weight_kg * -1 WHERE weight_kg < 0;
+
+COMMIT TRANSACTION;
+
+-- Inserting data into owners table
+INSERT INTO owners(owner_id,full_name,age) VALUES (1,'sam smith',34);
+INSERT INTO owners(owner_id,full_name,age) VALUES (2,'Jennifer Orwell',19);
+INSERT INTO owners(owner_id,full_name,age) VALUES (3,'Bob',45);
+INSERT INTO owners(owner_id,full_name,age) VALUES (4,'Melody Pond',77);
+INSERT INTO owners(owner_id,full_name,age) VALUES (5,'Dean Winchester',14);
+INSERT INTO owners(owner_id,full_name,age) VALUES (6,'Jodie Whittaker',38);
+
+-- Inserting daat into Species table
+INSERT INTO species(species_id,name) VALUES (1,'pokemon');
+INSERT INTO species(species_id,name) VALUES (2,'Digimon');
+
+
+/* Modify your inserted animals so it includes the species_id value */
+BEGIN TRANSACTION;
+
+UPDATE animals
+  SET species_id = 
+        (SELECT id FROM species WHERE name = 'Digimon')
+  WHERE name LIKE '%mon';
+
+UPDATE animals
+  SET species_id = 
+        (SELECT id FROM species WHERE name = 'Pokemon')
+  WHERE species_id IS NULL;
+
+COMMIT TRANSACTION;
+
+/* Modify your inserted animals to include owner information (owner_id) */
+BEGIN TRANSACTION;
+
+UPDATE animals
+  SET owner_id = 
+        (SELECT id FROM owners WHERE full_name = 'Sam Smith')
+  WHERE name = 'Agumon';
+
+UPDATE animals
+  SET owner_id = 
+        (SELECT id FROM owners WHERE full_name = 'Jennifer Orwell')
+  WHERE name IN ('Gabumon', 'Pikachu');
+
+UPDATE animals
+  SET owner_id = 
+        (SELECT id FROM owners WHERE full_name = 'Bob')
+  WHERE name IN ('Devimon','Plantmon');
+
+UPDATE animals
+  SET owner_id = 
+        (SELECT id FROM owners WHERE full_name = 'Melody Pond')
+  WHERE name IN ('Charmander', 'Squirtle','Blossom');
+
+UPDATE animals
+  SET owner_id = 
+        (SELECT id FROM owners WHERE full_name = 'Dean Winchester')
+  WHERE name IN ('Angemon', 'Boarmon');
 
 COMMIT TRANSACTION;
