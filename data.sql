@@ -162,6 +162,18 @@ INSERT INTO animals(
     17
 );
 
+-- Inserting data into owners table
+INSERT INTO owners(owner_id,full_name,age) VALUES (1,'sam smith',34);
+INSERT INTO owners(owner_id,full_name,age) VALUES (2,'Jennifer Orwell',19);
+INSERT INTO owners(owner_id,full_name,age) VALUES (3,'Bob',45);
+INSERT INTO owners(owner_id,full_name,age) VALUES (4,'Melody Pond',77);
+INSERT INTO owners(owner_id,full_name,age) VALUES (5,'Dean Winchester',14);
+INSERT INTO owners(owner_id,full_name,age) VALUES (6,'Jodie Whittaker',38);
+
+-- Inserting daat into Species table
+INSERT INTO species(species_id,name) VALUES (1,'pokemon');
+INSERT INTO species(species_id,name) VALUES (2,'Digimon'
+
 
 /* Start a transaction and update the animals 
    table by setting the species column to unspecified.
