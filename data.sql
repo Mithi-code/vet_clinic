@@ -269,3 +269,336 @@ UPDATE animals
   WHERE name IN ('Angemon', 'Boarmon');
 
 COMMIT TRANSACTION;
+
+-- Inserting data into vets table
+
+INSERT INTO
+  vets
+    (name, age, date_of_graduation)
+  VALUES
+    ('William Tatcher', 45, 'Apr 23, 2000'),
+    ('Maisy Smith', 26, 'Jan 17, 2019'),
+    ('Stephanie Mendez', 64, 'May 4, 1981'),
+    ('Jack Harkness', 38, 'Jun 8, 2008');
+
+-- Specializations table data
+
+INSERT INTO 
+  specializations
+    (species_id, vets_id)
+  VALUES
+    (
+      (
+        SELECT id 
+        FROM species 
+        WHERE name = 'Pokemon'
+      ),
+      (
+        SELECT id 
+        FROM vets 
+        WHERE name = 'William Tatcher'
+      )
+    ),
+    (
+      (
+        SELECT id 
+        FROM species 
+        WHERE name = 'Pokemon'
+      ),
+      (
+        SELECT id 
+        FROM vets 
+        WHERE name = 'Stephanie Mendez'
+      )
+    ),
+    (
+      (
+        SELECT id 
+        FROM species 
+        WHERE name = 'Digimon'
+      ),
+      (
+        SELECT id 
+        FROM vets 
+        WHERE name = 'Stephanie Mendez'
+      )
+    ),
+    (
+      (
+        SELECT id 
+        FROM species 
+        WHERE name = 'Digimon'
+      ),
+      (
+        SELECT id 
+        FROM vets 
+        WHERE name = 'Jack Harkness'
+      )
+    );
+
+-- Visits table with data
+
+INSERT INTO
+  visits
+    (animal_id, vets_id,  date_of_visit)
+  VALUES 
+    (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Agumon'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'William Tatcher'
+      ),
+      'May 24, 2020'
+    ),
+    (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Agumon'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'Stephanie Mendez'
+      ),
+      'Jul 22, 2020'
+    ),
+    (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Gabumon'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'Jack Harkness'
+      ),
+      'Feb 2, 2021'
+    ),
+    (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Pikachu'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'Maisy Smith'
+      ),
+      'Jan 5, 2020'
+    ),
+    (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Pikachu'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'Maisy Smith'
+      ),
+      'Mar 8, 2020'
+    ),
+    (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Pikachu'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'Maisy Smith'
+      ),
+      'May 14, 2020'
+    ),
+    (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Devimon'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'Stephanie Mendez'
+      ),
+      'May 4, 2021'
+    ),
+    (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Charmander'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'Jack Harkness'
+      ),
+      'Feb 24, 2021'
+    ),
+    (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Plantmon'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'Maisy Smith'
+      ),
+      'Dec 21, 2019'
+    ),
+    (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Plantmon'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'William Tatcher'
+      ),
+      'Aug 10, 2020'
+    ),
+    (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Plantmon'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'Maisy Smith'
+      ),
+      'Apr 7, 2021'
+    ),
+    (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Squirtle'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'Stephanie Mendez'
+      ),
+      'Sep 29, 2019'
+    ),
+    (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Angemon'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'Jack Harkness'
+      ),
+      'Oct 3, 2020'
+    ),
+    (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Angemon'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'Jack Harkness'
+      ),
+      'Nov 4, 2020'
+    ),
+    (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Boarmon'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'Maisy Smith'
+      ),
+      'Jan 24, 2019'
+    ),
+     (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Boarmon'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'Maisy Smith'
+      ),
+      'May 15, 2019'
+    ),
+     (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Boarmon'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'Maisy Smith'
+      ),
+      'Feb 27, 2020'
+    ),
+     (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Boarmon'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'Maisy Smith'
+      ),
+      'Aug 3, 2020'
+    ),
+     (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Blossom'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'Stephanie Mendez'
+      ),
+      'May 24, 2020'
+    ),
+     (
+      (
+        SELECT id
+        FROM animals
+        WHERE name = 'Blossom'
+      ),
+      (
+        SELECT id 
+        FROM vets
+        WHERE name = 'William Tatcher'
+      ),
+      'Jan 11, 2021'
+    );

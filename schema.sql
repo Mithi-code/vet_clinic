@@ -17,15 +17,13 @@ ALTER TABLE animals
 CREATE TABLE owners (
     id SERIAL PRIMARY KEY NOT NULL,
     full_name varchar(100),
-    age INT,
-    PRIMARY KEY(owner_id)
+    age INT
 );
 
 -- Species table 
 CREATE TABLE species (
     id SERIAL PRIMARY KEY NOT NULL,
-    name varchar(100),
-    PRIMARY KEY(species_id)
+    name varchar(100)
 );
 
 -- Remove column species
@@ -44,3 +42,29 @@ ALTER TABLE animals
   ADD CONSTRAINT fk_owner
   FOREIGN KEY (owner_id)
   REFERENCES owners (id);
+
+-- Creating new table vets
+CREATE TABLE vets (
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(100) NOT NULL, 
+  age INT,
+  date_of_graduation DATE NOT NULL 
+)
+
+--Specialization table
+
+CREATE TABLE specializations (
+    species_id INT NOT NULL,
+    vet_id INT NOT NULL,
+    FOREIGN KEY (species_id) REFERENCES species (id),
+    FOREIGN KEY (vet_id) REFERENCES vets (id) 
+);
+
+--Visit table
+CREATE TABLE visits (
+    animal_id INT NOT NULL,
+    vet_id INT NOT NULL,
+    date_of_visit DATE,
+    FOREIGN KEY (animal_id) REFERENCES animals (id),
+    FOREIGN KEY (vet_id) REFERENCES vets (id) 
+);

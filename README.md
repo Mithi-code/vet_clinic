@@ -2,7 +2,7 @@
 
 > Vet_clinic is a database where we can keep track of animals.
 
-
+![tables-screenshot](./app.png)
 ## Getting Started
 
 This repository includes files with plain SQL that can be used to recreate a database:
