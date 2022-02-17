@@ -17,15 +17,13 @@ ALTER TABLE animals
 CREATE TABLE owners (
     id SERIAL PRIMARY KEY NOT NULL,
     full_name varchar(100),
-    age INT,
-    (owner_id)
+    age INT
 );
 
 -- Species table 
 CREATE TABLE species (
     id SERIAL PRIMARY KEY NOT NULL,
-    name varchar(100),
-    (species_id)
+    name varchar(100)
 );
 
 -- Remove column species
