@@ -213,16 +213,16 @@ UPDATE animals SET weight_kg = weight_kg * -1 WHERE weight_kg < 0;
 COMMIT TRANSACTION;
 
 -- Inserting data into owners table
-INSERT INTO owners(owner_id,full_name,age) VALUES (1,'sam smith',34);
-INSERT INTO owners(owner_id,full_name,age) VALUES (2,'Jennifer Orwell',19);
-INSERT INTO owners(owner_id,full_name,age) VALUES (3,'Bob',45);
-INSERT INTO owners(owner_id,full_name,age) VALUES (4,'Melody Pond',77);
-INSERT INTO owners(owner_id,full_name,age) VALUES (5,'Dean Winchester',14);
-INSERT INTO owners(owner_id,full_name,age) VALUES (6,'Jodie Whittaker',38);
+INSERT INTO owners(full_name,age) VALUES ('sam smith',34);
+INSERT INTO owners(full_name,age) VALUES ('Jennifer Orwell',19);
+INSERT INTO owners(full_name,age) VALUES ('Bob',45);
+INSERT INTO owners(full_name,age) VALUES ('Melody Pond',77);
+INSERT INTO owners(full_name,age) VALUES ('Dean Winchester',14);
+INSERT INTO owners(full_name,age) VALUES ('Jodie Whittaker',38);
 
 -- Inserting daat into Species table
-INSERT INTO species(species_id,name) VALUES (1,'pokemon');
-INSERT INTO species(species_id,name) VALUES (2,'Digimon');
+INSERT INTO species(name) VALUES ('pokemon');
+INSERT INTO species(name) VALUES ('Digimon');
 
 
 /* Modify your inserted animals so it includes the species_id value */
@@ -235,7 +235,7 @@ UPDATE animals
 
 UPDATE animals
   SET species_id = 
-        (SELECT id FROM species WHERE name = 'Pokemon')
+        (SELECT id FROM species WHERE name = 'pokemon')
   WHERE species_id IS NULL;
 
 COMMIT TRANSACTION;
@@ -245,7 +245,7 @@ BEGIN TRANSACTION;
 
 UPDATE animals
   SET owner_id = 
-        (SELECT id FROM owners WHERE full_name = 'Sam Smith')
+        (SELECT id FROM owners WHERE full_name = 'sam smith')
   WHERE name = 'Agumon';
 
 UPDATE animals

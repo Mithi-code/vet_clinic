@@ -65,7 +65,7 @@ SELECT *
   FROM animals a
   INNER JOIN species s
   ON a.species_id = s.id
-  WHERE s.name = 'Pokemon';
+  WHERE s.name = 'pokemon';
 
 -- List all owners and their animals, remember to include those that don't own any animal.
 SELECT *
