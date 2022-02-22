@@ -3,6 +3,9 @@
 > Vet_clinic is a database where we can keep track of animals.
 
 ![tables-screenshot](./app.png)
+![Before-screenshot](./before.png)
+![After-screenshot](./after.png)
+
 ## Getting Started
 
 This repository includes files with plain SQL that can be used to recreate a database:
@@ -20,6 +23,11 @@ This repository includes files with plain SQL that can be used to recreate a dat
 - Twitter: [@twitterhandle](https://twitter.com/LazyMithlesh)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/mithicode)
 
+👤 **Mongare S.**
+
+- GitHub: [@githubhandle](https://github.com/Mosams/)
+- Twitter: [@twitterhandle](https://twitter.com/sam_mongare)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/sammy-mongare-b8288310b/)
 
 ## 🤝 Contributing
 
