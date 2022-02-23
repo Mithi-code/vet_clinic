@@ -27,3 +27,10 @@ CREATE TABLE invoices (
   REFERENCES medical_histories(id),
   PRIMARY KEY (id)
 );
+
+CREATE TABLE treatments (
+id INT GENERATED ALWAYS AS IDENTITY,
+type VARCHAR(255),
+name VARCHAR(255),
+PRIMARY KEY (id)
+); 
