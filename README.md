@@ -3,8 +3,11 @@
 > Vet_clinic is a database where we can keep track of animals.
 
 ![tables-screenshot](./app.png)
+# Before
 ![Before-screenshot](./before.png)
+# After
 ![After-screenshot](./after.png)
+# Diagram
 ![daigram-screenshot](./daigram.jpeg)
 
 ## Getting Started
