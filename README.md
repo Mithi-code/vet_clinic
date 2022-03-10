@@ -27,12 +27,6 @@ This repository includes files with plain SQL that can be used to recreate a dat
 - Twitter: [@twitterhandle](https://twitter.com/LazyMithlesh)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/mithicode)
 
-👤 **Mongare S.**
-
-- GitHub: [@githubhandle](https://github.com/Mosams/)
-- Twitter: [@twitterhandle](https://twitter.com/sam_mongare)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/sammy-mongare-b8288310b/)
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
